@@ -35,7 +35,7 @@ jobs:
           - build_variant: "mt7621-usb"
             targets: "XY-C1 JCG-836PRO JCG-AC860M JCG-Y2 DIR-882 A3004NS MSG1500 WR1200JS MI-R3G NEWIFI3 B70 ZTE_E8820S"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Prepare environment
         run: |
           sudo apt update
@@ -47,7 +47,7 @@ jobs:
           cd toolchain-mipsel
           sh dl_toolchain.sh
       - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
+        uses: mxschmitt/action-tmate@v4
         if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.debug_enabled == 'yes' }}
         with:
           limit-access-to-actor: true
